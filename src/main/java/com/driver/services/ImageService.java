@@ -75,7 +75,7 @@ com.driver.Exception.ImageNotFoundException: Invalid Image Id
 
         imageList.remove(image);
 
-        imageRepository2.deleteById(id);
+       // imageRepository2.deleteById(id);
 
 
     }

@@ -76,9 +76,10 @@ java.lang.NullPointerException: null
 
     /*
 
-    testDeleteBlog(com.driver.test.TestCases)  Time elapsed: 0.003 sec  <<< ERROR!
-com.driver.Exception.BlogNotFoundException: Invalid Blog Id
-	at com.driver.services.BlogService.deleteBlog(BlogService.java:49)
+   testDeleteBlog(com.driver.test.TestCases)  Time elapsed: 0.01 sec  <<< ERROR!
+java.util.NoSuchElementException: No value present
+	at java.base/java.util.Optional.get(Optional.java:148)
+	at com.driver.services.BlogService.deleteBlog(BlogService.java:95)
 	at com.driver.test.TestCases.testDeleteBlog(TestCases.java:174)
 
      */
@@ -87,11 +88,6 @@ com.driver.Exception.BlogNotFoundException: Invalid Blog Id
         //delete blog and corresponding images
 
         Optional<Blog> optionalBlog = blogRepository1.findById(blogId);
-
-//        if(optionalBlog.isEmpty()){
-//            throw new BlogNotFoundException("Invalid Blog Id");
-//        }
-
         Blog blog = optionalBlog.get();
 
         User user = blog.getUser();
@@ -102,9 +98,9 @@ com.driver.Exception.BlogNotFoundException: Invalid Blog Id
         blogList.remove(blog);
 
 
-
-        //deleting the blog from blog repo
-        blogRepository1.deleteById(blogId);
+//
+//        //deleting the blog from blog repo
+//        blogRepository1.deleteById(blogId);
 
 
 
