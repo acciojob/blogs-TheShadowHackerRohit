@@ -75,7 +75,7 @@ public class ImageService {
         }
         Image image = optionalImage.get();
 
-        String dimension = image.getDimension();
+        String dimension = image.getDimensions();
 
         // change the screen dimension to the Integers value
         String str[] = screenDimensions.split("X");
