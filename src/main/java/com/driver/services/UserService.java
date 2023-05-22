@@ -1,6 +1,5 @@
 package com.driver.services;
 
-import com.driver.Exception.UserNotFoundException;
 import com.driver.models.*;
 import com.driver.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +65,7 @@ userRepository3.findById(1);
 //        }
         User user = optionalUser.get();
         user.setPassword(password);
+        userRepository3.save(user);
 
         return user;
     }
