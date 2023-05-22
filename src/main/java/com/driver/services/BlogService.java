@@ -9,6 +9,7 @@ import com.driver.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,29 +36,39 @@ java.lang.NullPointerException: null
 
     public Blog createAndReturnBlog(Integer userId, String title, String content) {
         //create a blog at the current time
-
-
-
-        Optional<User> optionalUser = userRepository1.findById(userId);
-        User user = optionalUser.get();
-
-
-        Blog blog = new Blog(title,content);
-        blog.setUser(user);
-
-        user.getBlogList().add(blog);
-        User savedUser =  userRepository1.save(user);
-
-
-        //this uncomments codes are optional
-
-//        List<Blog> blogList =savedUser.getBlogList();
-//        int size = blogList.size();
 //
-//        Blog savedBlog = blogList.get(size - 1);
-//        Blog finalSavedBlog = blogRepository1.save(savedBlog);
-//        return  finalSavedBlog;
+//
+//
+//        Optional<User> optionalUser = userRepository1.findById(userId);
+//        User user = optionalUser.get();
+//
+//
+//        Blog blog = new Blog(title,content);
+//        blog.setUser(user);
+//
+//        user.getBlogList().add(blog);
+//        User savedUser =  userRepository1.save(user);
+//
+//
+//        //this uncomments codes are optional
+//
+////        List<Blog> blogList =savedUser.getBlogList();
+////        int size = blogList.size();
+////
+////        Blog savedBlog = blogList.get(size - 1);
+////        Blog finalSavedBlog = blogRepository1.save(savedBlog);
+////        return  finalSavedBlog;
+//
+//        return blog;
 
+        User user=userRepository1.findById(userId).get();
+        Blog blog = new Blog();
+        blog.setTitle(title);
+        blog.setContent(content);
+        blog.setPubDate(new Date());
+        blog.setUser(user);
+        user.getBlogList().add(blog);
+        userRepository1.save(user);
         return blog;
 
     }
