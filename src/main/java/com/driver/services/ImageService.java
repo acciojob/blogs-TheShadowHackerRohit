@@ -42,14 +42,14 @@ java.lang.NullPointerException: null
         Blog blog = optionalBlog.get();
 
         Image image = new Image(description,dimensions);
+        image.setBlog(blog);
 
         List<Image> imageList = blog.getImageList();
         imageList.add(image);
+        blogRepository2.save(blog);
 
 
-       Image savedImage =  imageRepository2.save(image);
-
-        return savedImage;
+        return image;
 
     }
 
