@@ -20,6 +20,19 @@ public class BlogService {
     @Autowired
     UserRepository userRepository1;
 
+    /*
+
+    testCreateAndReturnBlog(com.driver.test.TestCases)  Time elapsed: 0.761 sec  <<< ERROR!
+java.lang.NullPointerException: null
+	at com.driver.test.TestCases.testCreateAndReturnBlog(TestCases.java:86)
+
+
+testCreateAndReturnBlog1(com.driver.test.TestCases)  Time elapsed: 0.006 sec  <<< ERROR!
+java.lang.NullPointerException: null
+	at com.driver.test.TestCases.testCreateAndReturnBlog1(TestCases.java:105)
+
+     */
+
     public Blog createAndReturnBlog(Integer userId, String title, String content) {
         //create a blog at the current time
 
@@ -40,14 +53,23 @@ public class BlogService {
         return savedBlog;
     }
 
+    /*
+
+    testDeleteBlog(com.driver.test.TestCases)  Time elapsed: 0.003 sec  <<< ERROR!
+com.driver.Exception.BlogNotFoundException: Invalid Blog Id
+	at com.driver.services.BlogService.deleteBlog(BlogService.java:49)
+	at com.driver.test.TestCases.testDeleteBlog(TestCases.java:174)
+
+     */
+
     public void deleteBlog(int blogId){
         //delete blog and corresponding images
 
         Optional<Blog> optionalBlog = blogRepository1.findById(blogId);
 
-        if(optionalBlog.isEmpty()){
-            throw new BlogNotFoundException("Invalid Blog Id");
-        }
+//        if(optionalBlog.isEmpty()){
+//            throw new BlogNotFoundException("Invalid Blog Id");
+//        }
 
         Blog blog = optionalBlog.get();
 

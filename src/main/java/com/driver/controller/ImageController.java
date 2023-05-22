@@ -29,11 +29,11 @@ public class ImageController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteImage(@PathVariable int id) {
         // delete image using deleteById
-        try {
+       // try {
             imageService.deleteImage(id);
-        }catch (ImageNotFoundException e){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+//        }catch (ImageNotFoundException e){
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
@@ -41,11 +41,11 @@ public class ImageController {
     @GetMapping("/countImagesInScreen/{id}/{screenDimensions}")
     public ResponseEntity<Integer> countImagesInScreen(@PathVariable int id, @PathVariable String screenDimensions){
         int count;
-        try {
+       // try {
             count = imageService.countImagesInScreen(id,screenDimensions);
-        }catch (ImageNotFoundException e){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+//        }catch (ImageNotFoundException e){
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
         return new ResponseEntity<>(count, HttpStatus.OK);
     }
 

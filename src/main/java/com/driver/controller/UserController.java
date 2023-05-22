@@ -26,11 +26,11 @@ public class UserController {
     @DeleteMapping("/delete/{userId}")
     public ResponseEntity<Void> deleteUser(@PathVariable int userId) {
         // delete user using deleteById
-        try {
+        //try {
             userService.deleteUser(userId);
-        }catch (UserNotFoundException e){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+//        }catch (UserNotFoundException e){
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
@@ -38,11 +38,11 @@ public class UserController {
     @PutMapping("/update")
     public ResponseEntity<Void> updateUser(@RequestParam Integer id, @RequestParam String password) {
         // update password of given user
-        try {
+       // try {
             userService.updateUser(id,password);
-        }catch (UserNotFoundException e){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+//        }catch (UserNotFoundException e){
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
 
         return new ResponseEntity<>(HttpStatus.OK);
     }

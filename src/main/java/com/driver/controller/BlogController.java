@@ -22,11 +22,11 @@ public class BlogController {
     public ResponseEntity createBlog(@RequestParam Integer userId , @RequestParam String title, @RequestParam String content) {
         // Create a blog and add it under given user
 
-        try {
+        //try {
             Blog savedBlog = blogService.createAndReturnBlog(userId,title,content);
-        }catch (UserNotFoundException e){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+//        }catch (UserNotFoundException e){
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
 
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
@@ -34,11 +34,11 @@ public class BlogController {
     @DeleteMapping("/{blogId}")
     public ResponseEntity<Void> deleteBlog(@PathVariable int blogId) {
         // Delete the blog using deleteById
-        try {
+        //try {
             blogService.deleteBlog(blogId);
-        }catch (BlogNotFoundException e){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+//        }catch (BlogNotFoundException e){
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
