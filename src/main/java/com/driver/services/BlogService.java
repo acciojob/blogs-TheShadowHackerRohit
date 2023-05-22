@@ -87,21 +87,23 @@ java.util.NoSuchElementException: No value present
     public void deleteBlog(int blogId){
         //delete blog and corresponding images
 
-        Optional<Blog> optionalBlog = blogRepository1.findById(blogId);
-        Blog blog = optionalBlog.get();
-
-        User user = blog.getUser();
-
-        List<Blog> blogList = user.getBlogList();
-
-        //removing the blog from user wala blockList by remove by object method
-        blogList.remove(blog);
+//        Optional<Blog> optionalBlog = blogRepository1.findById(blogId);
+//        Blog blog = optionalBlog.get();
+//
+//        User user = blog.getUser();
+//
+//        List<Blog> blogList = user.getBlogList();
+//
+//        //removing the blog from user wala blockList by remove by object method
+//        blogList.remove(blog);
 
 
 //
 //        //deleting the blog from blog repo
 //        blogRepository1.deleteById(blogId);
 
+
+        blogRepository1.deleteById(blogId);
 
 
     }

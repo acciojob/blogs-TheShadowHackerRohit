@@ -63,19 +63,19 @@ com.driver.Exception.ImageNotFoundException: Invalid Image Id
 
     public void deleteImage(Integer id){
 
-        Optional<Image> optionalImage = imageRepository2.findById(id);
-//        if(optionalImage.isEmpty()){
-//            throw new ImageNotFoundException("Invalid Image Id");
-//        }
-        Image image = optionalImage.get();
+//        Optional<Image> optionalImage = imageRepository2.findById(id);
+//
+//        Image image = optionalImage.get();
+//
+//        Blog blog = image.getBlog();
+//
+//        List<Image> imageList = blog.getImageList();
+//
+//        imageList.remove(image);
+//
+//       // imageRepository2.deleteById(id);
 
-        Blog blog = image.getBlog();
-
-        List<Image> imageList = blog.getImageList();
-
-        imageList.remove(image);
-
-       // imageRepository2.deleteById(id);
+        imageRepository2.deleteById(id);
 
 
     }
