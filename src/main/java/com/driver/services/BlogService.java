@@ -36,21 +36,38 @@ java.lang.NullPointerException: null
     public Blog createAndReturnBlog(Integer userId, String title, String content) {
         //create a blog at the current time
 
+        /*
+
+         Appointment appointment = AppointmentTransformer.modelsToAppointment(appointmentRequestDto,user,doctor);
+
+
+       user.getAppointments().add(appointment);
+       User savedUser =  userRepository.save(user);// save dose1 and dose2 and appointment
+
+        Appointment savedAppointment = savedUser.getAppointments().get(savedUser.getAppointments().size()-1);
+
+        doctor.getAppointments().add(savedAppointment);
+        doctorRepository.save(doctor);
+
+         */
+
+
         Blog blog = new Blog(title,content);
-        Blog savedBlog = blogRepository1.save(blog);
+
 
         Optional<User> optionalUser = userRepository1.findById(userId);
 
-        if(optionalUser.isEmpty()){
-            throw new UserNotFoundException("Invalid User Id");
-        }
-
         User user = optionalUser.get();
 
-        List<Blog> blogList = user.getBlogList();
-        blogList.add(savedBlog);
+        user.getBlogList().add(blog);
+        User savedUser =  userRepository1.save(user);
 
-        return savedBlog;
+        Blog savedBlog = savedUser.getBlogList().get(savedUser.getBlogList().size()-1);
+
+
+        Blog finalSavedBlog = blogRepository1.save(savedBlog);
+
+        return finalSavedBlog;
     }
 
     /*
