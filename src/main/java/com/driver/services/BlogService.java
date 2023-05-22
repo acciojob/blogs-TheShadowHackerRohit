@@ -1,7 +1,5 @@
 package com.driver.services;
 
-import com.driver.Exception.BlogNotFoundException;
-import com.driver.Exception.UserNotFoundException;
 import com.driver.models.Blog;
 import com.driver.models.User;
 import com.driver.repositories.BlogRepository;
