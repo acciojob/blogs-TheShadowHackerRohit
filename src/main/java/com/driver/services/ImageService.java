@@ -116,21 +116,18 @@ org.opentest4j.AssertionFailedError: expected: <15> but was: <17>
         int heightScreen = Integer.valueOf(str[0]);
         int widthScreen = Integer.valueOf(str[1]);
 
-        int productScreen = heightScreen * widthScreen ;
-
-
-
         // change the current Image dimension to the Integers value
         String strImage[] = dimension.split("X");
 
         int heightImage = Integer.valueOf(strImage[0]);
         int widthImage = Integer.valueOf(strImage[1]);
 
-        int productImage = heightImage * widthImage;
+
+        int heightRatio = heightScreen/heightImage;
+        int widthRatio = widthScreen/widthImage;
 
 
-
-        int count = productScreen/productImage;
+        int count = heightRatio * widthRatio;
 
         return count;
     }
